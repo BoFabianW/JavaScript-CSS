@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titel der Website -->
+    <title>Sidebar mit JavaScript</title>
+
+    <!-- Einbinden von Font Awesome -->
+    <script src="https://kit.fontawesome.com/8dea027070.js" crossorigin="anonymous"></script>
+
+</head>
+
+<!-- CSS -->
+<style>
+
+* {
+    text-transform  : uppercase;
+    font-size       : 13px;
+    font-family     : Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin  : 0;
+}
+
+.font-menu {
+    color           : wheat;
+}
+
+#sidebar {
+
+    position        : fixed;
+    right           : -250px;
+    top             : 0px;
+    width           : 250px;
+    height          : 100vh;
+    background-image: linear-gradient(rgb(73, 89, 95), rgb(60, 88, 131));
+    overflow        : auto;
+
+    transition          : 1.3s;
+    -moz-transition     : 1.3s;
+    -webkit-transition  : 1.3s;
+}
+
+.title {
+    padding-top     : 80px;
+    padding-left    : 30px;
+    font-size       : 20px;
+}
+
+.menu {
+    margin-top  : 50px;
+}
+
+#sub_menu {
+    max-height      : 0px;
+    padding         : 0px;
+    text-align      : center;
+    overflow        : hidden;
+    transition      : 1.5s;
+}
+
+a {
+    text-decoration     : none;
+    display             : block;
+    padding-top         : 20px;
+    padding-bottom      : 20px;
+    border-bottom-style : solid;
+    border-color        : rgb(95, 125, 170);
+    border-width        : 1px;
+}
+
+a:hover {
+    background-color    :  rgb(95, 125, 170);
+}
+
+a:hover > .rotation {
+    transform           : rotate(720deg);
+    -moz-transform      : rotate(720deg);
+    -webkit-transform   : rotate(720deg);
+    transition          : 1s;
+    -moz-transition     : 1s;
+    -webkit-transition  : 1s;
+}
+
+#button {
+    position        : fixed;
+    right           : 30px;
+    top             : 30px;
+    padding         : 5px 10px;
+    border-color    :  rgb(95, 125, 170);
+    border-width    : 1px;
+    border-style    : solid;
+    border-radius   : 5px;
+    font-size       : 13px;
+    font-family     : Verdana, Geneva, Tahoma, sans-serif;
+    z-index         : 1;
+}
+
+#button:hover {
+    cursor  : pointer;
+}
+
+.icon {
+    padding-right   : 30px;
+    padding-left    : 30px;
+}
+
+.info {
+    color   : rgb(51, 51, 51);
+    font-size: 22px;
+    padding: 50px;
+}
+
+</style>
+
+<body>
+    
+    <button id="button" type="button" onclick="openClose()"><i class="fas fa-angle-double-right"></i></button>
+
+    <div id="sidebar">
+        <div class="font-menu title">Sidebar</div>
+
+        <div class="menu">
+            <a class="font-menu" href="#"><i class="fas fa-home icon rotation"></i>Home</a>
+            <a class="font-menu" href="#"><i class="fas fa-file-powerpoint icon rotation"></i>Leistung</a>
+            <a class="font-menu" href="#" onclick="sub_menu()"><i class="fas fa-dollar-sign icon rotation"></i>Angebote<i class="fas fa-angle-down icon"></i></a>
+            <div id="sub_menu">
+                <a class="font-menu" href="#">Angebot 1<i class="far fa-arrow-alt-circle-left icon rotation"></i></a>
+                <a class="font-menu" href="#">Angebot 2<i class="far fa-arrow-alt-circle-left icon rotation"></i></a>
+                <a class="font-menu" href="#">Angebot 3<i class="far fa-arrow-alt-circle-left icon rotation"></i></a>
+            </div>
+            <a class="font-menu" href="#"><i class="fas fa-phone-alt icon rotation"></i>Kontakt</a>
+            <a class="font-menu" href="#"><i class="fas fa-info icon rotation"></i>Impressum</a>
+        </div>
+
+    </div>
+
+    <div class="info">Sidebar mit JavaScript<br>
+                      Rechtes Navigationsmenü (ein- und ausklappbar)<br>
+                      Dropdown-Menu<br>
+                      Rotierende Icons</div>
+
+</body>
+
+<!-- JavaScript -->
+<script>
+
+    function openClose() {
+
+        let menu = document.getElementById('sidebar');
+        let button = document.getElementById('button');
+
+        if (menu.style.right == '0px') {
+
+            menu.style.right = "-250px";
+            button.innerHTML = `<i class="fas fa-angle-double-right">`;
+
+        } else {
+            
+            menu.style.right = "0px";
+            button.innerHTML = `<i class="fas fa-angle-double-left"></i>`;
+        }
+    }
+
+    function sub_menu() {
+
+        
+        let menu = document.getElementById('sub_menu');
+
+        if (menu.style.maxHeight == '172px') {
+            menu.style.maxHeight = '0px';
+        } else {
+            menu.style.maxHeight = '172px';
+        }  
+    }
+</script>
+
+</html>
