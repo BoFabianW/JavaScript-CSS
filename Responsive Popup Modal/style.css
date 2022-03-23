@@ -1,0 +1,81 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+body {
+    background-color: rgb(36, 36, 36);
+}
+
+.btn-container {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    z-index: 2;
+    user-select: none;
+    transform: translate(-50%);
+}
+
+.btn-buy {  
+    padding: 20px 30px;
+    background-color: yellowgreen;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.info-container {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    text-align: center;
+    transform: translate(-50%);
+    padding: 60px 50px;
+    background-color: snow;
+    border-style: none;
+    border-radius: 15px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.info-container h1 {
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+span {
+    border-radius: 50%;
+    box-shadow: 0 0 10px black;
+    padding: 12px 15px;
+}
+
+span i {
+    color: yellowgreen;
+}
+
+.btn-ok {  
+    width: 100%;
+    padding: 10px 10px;
+    margin-top: 15px;
+    background-color: yellowgreen;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-ok:hover {
+    opacity: .6;
+}
+
+.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+@media screen and (max-width: 840px) {
+    .info-container {
+        width: 300px;
+    }
+}
